@@ -1,0 +1,28 @@
+{
+  "name": "repeat2_vit_random_c5",
+  "model": "vit_b_16",
+  "checkpoint": "C:\\Users\\jbinn\\Documents\\aachen_project\\checkpoints\\repeat_2\\vit\\random\\cycle_05.pt",
+  "split": "test",
+  "num_samples": 40,
+  "accuracy": 0.975,
+  "balanced_accuracy": 0.9814814814814814,
+  "no_defect_precision": 0.9285714285714286,
+  "no_defect_recall": 1.0,
+  "no_defect_f1": 0.9629629629629629,
+  "defect_precision": 1.0,
+  "defect_recall": 0.9629629629629629,
+  "defect_f1": 0.9811320754716981,
+  "false_negative_rate": 0.037037037037037035,
+  "macro_precision": 0.9642857142857143,
+  "macro_recall": 0.9814814814814814,
+  "macro_f1": 0.9720475192173306,
+  "weighted_precision": 0.9767857142857143,
+  "weighted_recall": 0.975,
+  "weighted_f1": 0.9752271139063591,
+  "confusion_matrix": {
+    "tn": 13,
+    "fp": 0,
+    "fn": 1,
+    "tp": 26
+  }
+}

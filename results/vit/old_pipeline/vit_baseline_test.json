@@ -1,0 +1,28 @@
+{
+  "name": "repeat2_vit_baseline",
+  "model": "vit_b_16",
+  "checkpoint": "C:\\Users\\jbinn\\Documents\\aachen_project\\checkpoints\\repeat_2\\vit\\baseline\\best.pt",
+  "split": "test",
+  "num_samples": 40,
+  "accuracy": 0.95,
+  "balanced_accuracy": 0.9430199430199431,
+  "no_defect_precision": 0.9230769230769231,
+  "no_defect_recall": 0.9230769230769231,
+  "no_defect_f1": 0.9230769230769231,
+  "defect_precision": 0.9629629629629629,
+  "defect_recall": 0.9629629629629629,
+  "defect_f1": 0.9629629629629629,
+  "false_negative_rate": 0.037037037037037035,
+  "macro_precision": 0.9430199430199431,
+  "macro_recall": 0.9430199430199431,
+  "macro_f1": 0.9430199430199431,
+  "weighted_precision": 0.95,
+  "weighted_recall": 0.95,
+  "weighted_f1": 0.95,
+  "confusion_matrix": {
+    "tn": 12,
+    "fp": 1,
+    "fn": 1,
+    "tp": 26
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "resnet_random_cycle05",
+  "checkpoint": "C:\\Users\\nazis\\Downloads\\internship\\Active-learning-pipeline-for-industrial-vision-systems\\checkpoints\\random\\cycle_05.pt",
+  "split": "shadow",
+  "num_samples": 100,
+  "accuracy": 0.93,
+  "balanced_accuracy": 0.9027777777777778,
+  "no_defect_precision": 1.0,
+  "no_defect_recall": 0.8055555555555556,
+  "no_defect_f1": 0.8923076923076924,
+  "defect_precision": 0.9014084507042254,
+  "defect_recall": 1.0,
+  "defect_f1": 0.9481481481481482,
+  "false_negative_rate": 0.0,
+  "macro_precision": 0.9507042253521127,
+  "macro_recall": 0.9027777777777778,
+  "macro_f1": 0.9202279202279202,
+  "weighted_precision": 0.9369014084507044,
+  "weighted_recall": 0.93,
+  "weighted_f1": 0.928045584045584,
+  "confusion_matrix": {
+    "tn": 29,
+    "fp": 7,
+    "fn": 0,
+    "tp": 64
+  }
+}

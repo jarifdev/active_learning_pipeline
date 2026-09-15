@@ -1,0 +1,27 @@
+{
+  "name": "final_random_c5",
+  "checkpoint": "C:\\Users\\jbinn\\Documents\\aachen_project\\checkpoints\\random_new\\cycle_05.pt",
+  "split": "shadow",
+  "num_samples": 100,
+  "accuracy": 0.92,
+  "balanced_accuracy": 0.8888888888888888,
+  "no_defect_precision": 1.0,
+  "no_defect_recall": 0.7777777777777778,
+  "no_defect_f1": 0.875,
+  "defect_precision": 0.8888888888888888,
+  "defect_recall": 1.0,
+  "defect_f1": 0.9411764705882353,
+  "false_negative_rate": 0.0,
+  "macro_precision": 0.9444444444444444,
+  "macro_recall": 0.8888888888888888,
+  "macro_f1": 0.9080882352941176,
+  "weighted_precision": 0.9288888888888889,
+  "weighted_recall": 0.92,
+  "weighted_f1": 0.9173529411764706,
+  "confusion_matrix": {
+    "tn": 28,
+    "fp": 8,
+    "fn": 0,
+    "tp": 64
+  }
+}

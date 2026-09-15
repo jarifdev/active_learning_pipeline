@@ -1,0 +1,28 @@
+{
+  "name": "vit_baseline",
+  "model": "vit_b_16",
+  "checkpoint": "C:\\Users\\jbinn\\Documents\\final_repo\\checkpoints\\vit\\new_pipeline\\baseline\\baseline.pt",
+  "split": "shadow",
+  "num_samples": 100,
+  "accuracy": 0.99,
+  "balanced_accuracy": 0.9861111111111112,
+  "no_defect_precision": 1.0,
+  "no_defect_recall": 0.9722222222222222,
+  "no_defect_f1": 0.9859154929577465,
+  "defect_precision": 0.9846153846153847,
+  "defect_recall": 1.0,
+  "defect_f1": 0.9922480620155039,
+  "false_negative_rate": 0.0,
+  "macro_precision": 0.9923076923076923,
+  "macro_recall": 0.9861111111111112,
+  "macro_f1": 0.9890817774866252,
+  "weighted_precision": 0.9901538461538462,
+  "weighted_recall": 0.99,
+  "weighted_f1": 0.9899683371547112,
+  "confusion_matrix": {
+    "tn": 35,
+    "fp": 1,
+    "fn": 0,
+    "tp": 64
+  }
+}

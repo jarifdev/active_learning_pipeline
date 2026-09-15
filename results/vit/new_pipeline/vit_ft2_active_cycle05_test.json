@@ -1,0 +1,28 @@
+{
+  "name": "vit_ft2_active_cycle05",
+  "model": "vit_b_16",
+  "checkpoint": "C:\\Users\\nazis\\Downloads\\internship\\Active-learning-pipeline-for-industrial-vision-systems\\checkpoints\\vit_ft2\\active\\cycle_05.pt",
+  "split": "test",
+  "num_samples": 40,
+  "accuracy": 0.95,
+  "balanced_accuracy": 0.962962962962963,
+  "no_defect_precision": 0.8666666666666667,
+  "no_defect_recall": 1.0,
+  "no_defect_f1": 0.9285714285714286,
+  "defect_precision": 1.0,
+  "defect_recall": 0.9259259259259259,
+  "defect_f1": 0.9615384615384616,
+  "false_negative_rate": 0.07407407407407407,
+  "macro_precision": 0.9333333333333333,
+  "macro_recall": 0.962962962962963,
+  "macro_f1": 0.945054945054945,
+  "weighted_precision": 0.9566666666666667,
+  "weighted_recall": 0.95,
+  "weighted_f1": 0.9508241758241759,
+  "confusion_matrix": {
+    "tn": 13,
+    "fp": 0,
+    "fn": 2,
+    "tp": 25
+  }
+}

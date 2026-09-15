@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Model checkpoints
+checkpoints/
+*.pt
+*.pth
+
+# Dataset
+raw_data/
+
+# Large generated arrays
+*.npz
+
+# Optional generated experiment outputs
+logs/

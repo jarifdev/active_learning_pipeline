@@ -1,0 +1,18 @@
+{
+  "name": "resnet50_baseline_repeat",
+  "checkpoint": "C:\\Users\\jbinn\\Documents\\aachen_project\\checkpoints\\resnet50_baseline_repeat.pt",
+  "split": "test",
+  "num_samples": 40,
+  "accuracy": 0.975,
+  "defect_precision": 1.0,
+  "defect_recall": 0.9629629629629629,
+  "defect_f1": 0.9811320754716981,
+  "balanced_accuracy": 0.9814814814814814,
+  "false_negative_rate": 0.037037037037037035,
+  "confusion_matrix": {
+    "tn": 13,
+    "fp": 0,
+    "fn": 1,
+    "tp": 26
+  }
+}

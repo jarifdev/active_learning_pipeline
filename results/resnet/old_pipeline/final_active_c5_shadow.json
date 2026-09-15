@@ -1,0 +1,27 @@
+{
+  "name": "final_active_c5",
+  "checkpoint": "C:\\Users\\jbinn\\Documents\\aachen_project\\checkpoints\\active\\cycle_05.pt",
+  "split": "shadow",
+  "num_samples": 100,
+  "accuracy": 0.96,
+  "balanced_accuracy": 0.9505208333333333,
+  "no_defect_precision": 0.9705882352941176,
+  "no_defect_recall": 0.9166666666666666,
+  "no_defect_f1": 0.9428571428571428,
+  "defect_precision": 0.9545454545454546,
+  "defect_recall": 0.984375,
+  "defect_f1": 0.9692307692307692,
+  "false_negative_rate": 0.015625,
+  "macro_precision": 0.9625668449197862,
+  "macro_recall": 0.9505208333333333,
+  "macro_f1": 0.956043956043956,
+  "weighted_precision": 0.9603208556149733,
+  "weighted_recall": 0.96,
+  "weighted_f1": 0.9597362637362638,
+  "confusion_matrix": {
+    "tn": 33,
+    "fp": 3,
+    "fn": 1,
+    "tp": 63
+  }
+}
