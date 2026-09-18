@@ -5,24 +5,21 @@ This repository contains controlled active-learning experiments for binary indus
 For each model, three strategies are maintained:
 
 Baseline — trained only on the initial labeled training set.
-
 Active Learning — adds 20 selected images per cycle.
-
 Random Control — adds the same number of randomly selected images per cycle.
 
 Two acquisition implementations are kept:
 
 Old pipeline — randomly sample 40 candidates, score them using uncertainty, diversity, and novelty/drift, then select the top 20.
-
 New pipeline — score the full unlabeled pool using uncertainty and novelty/drift, keep the top 40 informative samples, then apply greedy k-center to select 20 diverse samples.
 
 This README documents the repository layout and how to reproduce the experiments.
 
-> **Important execution rule:** the repository structure stays exactly as shown below.
+**Important execution rule:** the repository structure stays exactly as shown below.
 
-> The old and new pipelines are kept as separate experiment branches so the original files, outputs, and results remain visible.
+The old and new pipelines are kept as separate experiment branches so the original files, outputs, and results remain visible.
 
-> **Run each pipeline as a complete independent experiment from Cycle 0 to Cycle 5. Do not switch from the old pipeline to the new pipeline halfway through a run.**
+**Run each pipeline as a complete independent experiment from Cycle 0 to Cycle 5. Do not switch from the old pipeline to the new pipeline halfway through a run.**
 
 ---
 
