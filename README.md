@@ -284,6 +284,11 @@ Rank 40
     |
 Select top 20
 ```
+Default information score:
+
+```text
+1/3 * uncertainty + 1/3 * normalized novelty + 1/3 * normalized drift
+```
 Only the selected 20 are removed from the pool. The rejected 20 remain available for later cycles.
 
 ### New pipeline
