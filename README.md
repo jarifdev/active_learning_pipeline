@@ -130,7 +130,6 @@ Each state records the current labeled training set and remaining pool:
 ```text
 
 cycle_00.json
-
 cycle_01.json
 
 ...
@@ -178,9 +177,7 @@ Typical active-learning outputs:
 ```text
 
 cycle_01_candidates.csv
-
 cycle_01_to_label.csv
-
 cycle_01_embeddings.npz
 
 ```
@@ -200,11 +197,8 @@ So a new-pipeline selection cycle usually produces:
 ```text
 
 cycle_01_pool_scores.csv
-
 cycle_01_candidates.csv
-
 cycle_01_to_label.csv
-
 cycle_01_embeddings.npz
 
 ```
@@ -216,13 +210,11 @@ Recommended naming:
 ```text
 
 baseline/best.pt
-
 active/cycle_01.pt
 
 ...
 
 active/cycle_05.pt
-
 random/cycle_01.pt
 
 ...
@@ -238,7 +230,6 @@ Typical training logs:
 ```text
 
 baseline/train_log.csv
-
 active/cycle_01_train_log.csv
 
 ...
@@ -254,11 +245,8 @@ Evaluation outputs should be stored under the correct model and pipeline, for ex
 ```text
 
 results/resnet/old_pipeline/
-
 results/resnet/new_pipeline/
-
 results/vit/old_pipeline/
-
 results/vit/new_pipeline/
 
 ```
@@ -434,9 +422,7 @@ Before labeling:
 ```csv
 
 filename,label
-
 unlabeled_pool/image_001.BMP,
-
 unlabeled_pool/image_002.BMP,
 
 ```
@@ -446,9 +432,7 @@ Fill labels manually:
 ```csv
 
 filename,label
-
 unlabeled_pool/image_001.BMP,0
-
 unlabeled_pool/image_002.BMP,1
 
 ```
@@ -458,7 +442,6 @@ Use:
 ```text
 
 0 = no_defect
-
 1 = defect
 
 ```
@@ -476,25 +459,15 @@ For one experiment branch:
 ```text
 
 1. Verify split.json
-
 2. Initialize that branch's Active + Random Cycle-0 states
-
 3. Train that branch's Baseline
-
 4. Run Active C1-C5 using only that pipeline's selection method
-
 5. Run that branch's Random C1-C5
-
 6. Evaluate that branch's Baseline
-
 7. Evaluate that branch's Active C5
-
 8. Evaluate that branch's Random C5
-
 9. Optionally run integrity audit
-
 10. Optionally compare per-image predictions
-
 11. Optionally generate training graphs
 
 ```
@@ -504,11 +477,8 @@ The four independent experiment families are:
 ```text
 
 Experiment 1: ResNet + old pipeline
-
 Experiment 2: ResNet + new pipeline
-
 Experiment 3: ViT    + old pipeline
-
 Experiment 4: ViT    + new pipeline
 
 ```
@@ -552,7 +522,6 @@ Both branches must start with identical:
 ```text
 
 160 labeled training images
-
 200 unlabeled images
 
 ```
@@ -640,7 +609,6 @@ Label `cycle_02_to_label.csv`, then:
 ```powershell
 
 python src/resnet/old_pipeline/active_learning.py --cycle 2 --pipeline old_pipeline
-
 python src/resnet/train.py --cycle 2 --pipeline old_pipeline
 
 ```
@@ -658,7 +626,6 @@ Label, then:
 ```powershell
 
 python src/resnet/old_pipeline/active_learning.py --cycle 3 --pipeline old_pipeline
-
 python src/resnet/train.py --cycle 3 --pipeline old_pipeline
 
 ```
@@ -676,7 +643,6 @@ Label, then:
 ```powershell
 
 python src/resnet/old_pipeline/active_learning.py --cycle 4 --pipeline old_pipeline
-
 python src/resnet/train.py --cycle 4 --pipeline old_pipeline
 
 ```
@@ -694,7 +660,6 @@ Label, then:
 ```powershell
 
 python src/resnet/old_pipeline/active_learning.py --cycle 5 --pipeline old_pipeline
-
 python src/resnet/train.py --cycle 5 --pipeline old_pipeline
 
 ```
@@ -738,7 +703,6 @@ Then:
 ```powershell
 
 python src/resnet/old_pipeline/active_learning.py --cycle 1 --pipeline new_pipeline
-
 python src/resnet/train.py --cycle 1 --pipeline new_pipeline
 
 ```
@@ -748,9 +712,7 @@ python src/resnet/train.py --cycle 1 --pipeline new_pipeline
 ```powershell
 
 python src/resnet/new_pipeline/selection_resnet_new.py --cycle 2 --checkpoint checkpoints/resnet/new_pipeline/active/cycle_01.pt
-
 python src/resnet/old_pipeline/active_learning.py --cycle 2 --pipeline new_pipeline
-
 python src/resnet/train.py --cycle 2 --pipeline new_pipeline
 
 ```
@@ -760,9 +722,7 @@ python src/resnet/train.py --cycle 2 --pipeline new_pipeline
 ```powershell
 
 python src/resnet/new_pipeline/selection_resnet_new.py --cycle 3 --checkpoint checkpoints/resnet/new_pipeline/active/cycle_02.pt
-
 python src/resnet/old_pipeline/active_learning.py --cycle 3 --pipeline new_pipeline
-
 python src/resnet/train.py --cycle 3 --pipeline new_pipeline
 
 ```
@@ -772,9 +732,7 @@ python src/resnet/train.py --cycle 3 --pipeline new_pipeline
 ```powershell
 
 python src/resnet/new_pipeline/selection_resnet_new.py --cycle 4 --checkpoint checkpoints/resnet/new_pipeline/active/cycle_03.pt
-
 python src/resnet/old_pipeline/active_learning.py --cycle 4 --pipeline new_pipeline
-
 python src/resnet/train.py --cycle 4 --pipeline new_pipeline
 
 ```
@@ -784,9 +742,7 @@ python src/resnet/train.py --cycle 4 --pipeline new_pipeline
 ```powershell
 
 python src/resnet/new_pipeline/selection_resnet_new.py --cycle 5 --checkpoint checkpoints/resnet/new_pipeline/active/cycle_04.pt
-
 python src/resnet/old_pipeline/active_learning.py --cycle 5 --pipeline new_pipeline
-
 python src/resnet/train.py --cycle 5 --pipeline new_pipeline
 
 ```
@@ -802,11 +758,8 @@ Each Random cycle follows:
 ```text
 
 random selection
-
 -> manual labeling
-
 -> random state update
-
 -> training
 
 ```
@@ -832,7 +785,6 @@ Then:
 ```powershell
 
 python src/resnet/update_random_state.py --cycle 1 --pipeline old_pipeline
-
 python src/resnet/train_random.py --cycle 1 --pipeline old_pipeline
 
 ```
@@ -842,9 +794,7 @@ Repeat for cycles 2-5:
 ```powershell
 
 python src/resnet/random_selection.py --cycle 2 --pipeline old_pipeline
-
 python src/resnet/update_random_state.py --cycle 2 --pipeline old_pipeline
-
 python src/resnet/train_random.py --cycle 2 --pipeline old_pipeline
 
 ```
@@ -852,7 +802,6 @@ python src/resnet/train_random.py --cycle 2 --pipeline old_pipeline
 and so on.
 
 For the new-pipeline experiment, run the equivalent Random branch under `new_pipeline/` from its own fresh Cycle-0 state.
-
 Do not reuse the old-pipeline Random Cycle-1 to Cycle-5 states or checkpoints when reporting the new-pipeline experiment.
 
 ---
@@ -916,7 +865,6 @@ Label the generated file, then:
 ```powershell
 
 python src/vit/old_pipeline/active_learning_vit.py --cycle 1 --pipeline old_pipeline
-
 python src/vit/train_vit_ft2.py --cycle 1 --epochs 10 --pipeline old_pipeline
 
 ```
@@ -926,9 +874,7 @@ python src/vit/train_vit_ft2.py --cycle 1 --epochs 10 --pipeline old_pipeline
 ```powershell
 
 python src/vit/old_pipeline/selection_vit.py --cycle 2 --checkpoint checkpoints/vit/old_pipeline/active/cycle_01.pt
-
 python src/vit/old_pipeline/active_learning_vit.py --cycle 2 --pipeline old_pipeline
-
 python src/vit/train_vit_ft2.py --cycle 2 --epochs 10 --pipeline old_pipeline
 
 ```
@@ -954,7 +900,6 @@ Label the generated `cycle_01_to_label.csv`, then:
 ```powershell
 
 python src/vit/old_pipeline/active_learning_vit.py --cycle 1 --pipeline new_pipeline
-
 python src/vit/train_vit_ft2.py --cycle 1 --epochs 10 --pipeline new_pipeline
 
 ```
@@ -964,15 +909,12 @@ python src/vit/train_vit_ft2.py --cycle 1 --epochs 10 --pipeline new_pipeline
 ```powershell
 
 python src/vit/new_pipeline/selection_vit_new.py --cycle 2 --checkpoint checkpoints/vit/new_pipeline/active/cycle_01.pt
-
 python src/vit/old_pipeline/active_learning_vit.py --cycle 2 --pipeline new_pipeline
-
 python src/vit/train_vit_ft2.py --cycle 2 --epochs 10 --pipeline new_pipeline
 
 ```
 
 Repeat through Cycle 5.
-
 The new selector should additionally generate a `cycle_XX_pool_scores.csv` proving that every image in the current pool was scored.
 
 ---
@@ -1000,7 +942,6 @@ Then:
 ```powershell
 
 python src/vit/update_random_state_vit.py --cycle 1 --pipeline old_pipeline
-
 python src/vit/train_random_vit_ft2.py --cycle 1 --epochs 10 --pipeline old_pipeline
 
 ```
@@ -1008,7 +949,6 @@ python src/vit/train_random_vit_ft2.py --cycle 1 --epochs 10 --pipeline old_pipe
 Repeat for Cycles 2-5.
 
 For the new-pipeline experiment, use the corresponding `new_pipeline/` Random paths and run that Random branch from a fresh Cycle-0 state.
-
 Keep the old- and new-pipeline Random results separate so each Active-vs-Random comparison belongs to the same independent experiment branch.
 
 ---
@@ -1020,9 +960,7 @@ Final models to evaluate:
 ```text
 
 Baseline
-
 Active C5
-
 Random C5
 
 ```
@@ -1032,9 +970,7 @@ Random C5
 ```powershell
 
 python src/resnet/evaluate.py --pipeline old_pipeline --checkpoint checkpoints/resnet/old_pipeline/baseline/best.pt --split test --name baseline_test
-
 python src/resnet/evaluate.py --pipeline old_pipeline --checkpoint checkpoints/resnet/old_pipeline/active/cycle_05.pt --split test --name active_c5_test
-
 python src/resnet/evaluate.py --pipeline old_pipeline --checkpoint checkpoints/resnet/old_pipeline/random/cycle_05.pt --split test --name random_c5_test
 
 ```
@@ -1052,23 +988,18 @@ Repeat with:
 ```powershell
 
 python src/vit/evaluate_vit.py --pipeline old_pipeline --checkpoint checkpoints/vit/old_pipeline/baseline/best.pt --split test --name vit_baseline_test
-
 python src/vit/evaluate_vit.py --pipeline old_pipeline --checkpoint checkpoints/vit/old_pipeline/active/cycle_05.pt --split test --name vit_active_c5_test
-
 python src/vit/evaluate_vit.py --pipeline old_pipeline --checkpoint checkpoints/vit/old_pipeline/random/cycle_05.pt --split test --name vit_random_c5_test
 
 ```
 
 Again, repeat with `--split shadow`.
-
 Use equivalent paths for the new pipeline.
-
 When reporting results, compare models within the same experiment branch:
 
 ```text
 
 old-pipeline Baseline vs old-pipeline Active vs old-pipeline Random
-
 new-pipeline Baseline vs new-pipeline Active vs new-pipeline Random
 
 ```
@@ -1082,21 +1013,13 @@ Example:
 ```powershell
 
 python src/compare_predictions.py `
-
   --root . `
-
   --architecture resnet50 `
-
   --model baseline=checkpoints/resnet/old_pipeline/baseline/best.pt `
-
   --model active=checkpoints/resnet/old_pipeline/active/cycle_05.pt `
-
   --model random=checkpoints/resnet/old_pipeline/random/cycle_05.pt `
-
   --split test `
-
   --split shadow `
-
   --out results/resnet/old_pipeline/prediction_comparison
 
 ```
@@ -1106,19 +1029,12 @@ Typical outputs:
 ```text
 
 test_paired.csv
-
 test_errors.csv
-
 test_false_negatives.csv
-
 shadow_paired.csv
-
 shadow_errors.csv
-
 shadow_false_negatives.csv
-
 metrics.csv
-
 manifest.json
 
 ```
@@ -1132,15 +1048,10 @@ This is a read-only analysis step.
 ```powershell
 
 python src/analyze_training.py `
-
   --root . `
-
   --run baseline=logs/resnet/old_pipeline/baseline/train_log.csv `
-
   --run active=logs/resnet/old_pipeline/active/cycle_05_train_log.csv `
-
   --run random=logs/resnet/old_pipeline/random/cycle_05_train_log.csv `
-
   --output results/resnet/old_pipeline/training_analysis
 
 ```
@@ -1150,25 +1061,15 @@ Typical outputs:
 ```text
 
 baseline_loss.png
-
 baseline_accuracy.png
-
 active_loss.png
-
 active_accuracy.png
-
 random_loss.png
-
 random_accuracy.png
-
 comparison_val_loss.png
-
 comparison_val_acc.png
-
 summary.csv
-
 all_epochs.csv
-
 report.json
 
 ```
@@ -1184,9 +1085,7 @@ Example:
 ```powershell
 
 python src/audit_integrity.py `
-
   --root .
-
   --near-duplicates
 
 ```
@@ -1196,21 +1095,13 @@ The audit is intended to check:
 ```text
 
 Cycle-0 branch equality
-
 state progression
-
 train/pool conservation
-
 selection/state agreement
-
 label consistency
-
 held-out leakage
-
 missing image files
-
 exact duplicates
-
 possible near duplicates
 
 ```
@@ -1226,15 +1117,10 @@ The existing directory structure already keeps old- and new-pipeline files separ
 If a run itself must be restarted:
 
 - identify the exact model/pipeline branch;
-
 - preserve any outputs that should be kept;
-
 - remove only that branch's generated states, selections, checkpoints, logs, and results;
-
 - rerun that branch's Cycle-0 initialization;
-
 - retrain that branch's baseline;
-
 - rerun acquisition from Cycle 1.
 
 If you want to run the other pipeline, treat it as a new experiment:
@@ -1246,15 +1132,10 @@ Do not reuse later-cycle states after changing:
 ```text
 
 labels
-
 selection algorithm
-
 split.json
-
 model configuration
-
 training settings
-
 seed policy
 
 ```
